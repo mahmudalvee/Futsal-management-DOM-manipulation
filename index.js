@@ -30,6 +30,7 @@ function addPlayers(element)
     // console.log(selectedPlayers);
     if(selectedPlayers.length>5){
         alert('Ooops!!!\nYou can not select more than 5 players.');
+        selectedPlayers.length= 5;
         return;
     }
     // btn disable
@@ -41,13 +42,12 @@ function addPlayers(element)
 }
 
 
-//prothom hishab
+
 function getInputValueById(inputFieldId){
     // GET any inputfield value
     const inputField= document.getElementById(inputFieldId);
     const inputFieldString= inputField.value;
     const inputFieldValue= parseFloat(inputFieldString);
-    inputField.value= '';
     return inputFieldValue;
 }
 
@@ -58,30 +58,54 @@ function setElementValueTextById(elementId, newValue){
     element.innerText= newValue;
 }
 
-function prothomHishab(a,b){
-    return ans= a*b;
-}
-
-function finalHishab(a,b,c){
-    return ans= a+b+c;
-}
-
+//prothom hishab
+let prothomHishabValue= 0;
 document.getElementById('calulate-btn').addEventListener('click',function(){
     // get player cost
     const perPlayerAmount= getInputValueById('per-player-input');
+    if(selectedPlayers.length <= 0)
+    {
+        alert('Calculation Error!!!\nPlease select Player(s) first.');
+        return;
+    }
     if(isNaN(perPlayerAmount) || perPlayerAmount < 0)
     {
         alert('Calculation Error!!!\nPlease enter valid digit cost$ of Players.');
         return;
     }
     // total hishab
-    if(selectedPlayers.length>5){
+    if(selectedPlayers.length<=5){
+        const playerExpensesTotalAmount= perPlayerAmount * selectedPlayers.length;
+    
+        // setting the total cost where it belongs (html er id, value)
+        setElementValueTextById('playerExpensesAmount',playerExpensesTotalAmount);
+        prothomHishabValue= playerExpensesTotalAmount;
+    }
+    else{
         return;
     }
-    //pass parameters to function prothomHishab()
-    const playerExpensesTotalAmount= prothomHishab(perPlayerAmount, selectedPlayers.length);
+})
+
+//next hishab
+document.getElementById('calulateTotal-btn').addEventListener('click',function(){
+    const managerCost= getInputValueById('manager-cost');
+    const coachCost= getInputValueById('coach-cost');
+
+    if(selectedPlayers.length <= 0)
+    {
+        alert('Calculation Error!!!\nPlease select Player(s) first.');
+        return;
+    }
+    if((isNaN(managerCost) || managerCost < 0) || (isNaN(coachCost) || coachCost < 0))
+    {
+        alert('Calculation Error!!!\nPlease enter valid digit cost$ for Manager & Coach.');
+        return;
+    }
     
-    // setting the total cost where it belongs (html er id, value)
-    setElementValueTextById('playerExpensesAmount',playerExpensesTotalAmount);
-    return playerExpensesTotalAmount;
+    //final hishab
+    // prothom hishab er value nite hobe through prothomHishabValue(number)
+    
+    const totalAmount= prothomHishabValue + managerCost + coachCost;
+    setElementValueTextById('total-amount',totalAmount);
+    
 })
