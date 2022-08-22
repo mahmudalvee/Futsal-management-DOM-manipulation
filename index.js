@@ -51,12 +51,11 @@ function getInputValueById(inputFieldId){
     return inputFieldValue;
 }
 
-function getElementValueTextById(elementId){
-    // GET any innerText value from html
+
+function setElementValueTextById(elementId, newValue){
+    // SET any innerText value on html
     const element= document.getElementById(elementId);
-    const elementValueTextString= element.innerText;
-    const elementValueText= parseFloat(elementValueTextString);
-    return elementValueText;
+    element.innerText= newValue;
 }
 
 function prothomHishab(a,b){
