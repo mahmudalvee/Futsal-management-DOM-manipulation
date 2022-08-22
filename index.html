@@ -34,7 +34,7 @@
                 <p class="card-text">Country: Portugal</p>
                 <p class="card-text">1000 x Goals</p>
                 <p class="card-text">900 x Assists</p>
-                <button type="button" class="texts btn btn-warning fw-semibold">Select</button>
+                <button type="button" class="texts btn btn-warning fw-semibold" onclick="addPlayers(this)">Select</button>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
                 <p class="card-text">Country: Argentina</p>
                 <p class="card-text">900 x Goals</p>
                 <p class="card-text">1000 x Assists</p>
-                <button type="button" class="texts btn btn-warning fw-semibold">Select</button>
+                <button type="button" class="texts btn btn-warning fw-semibold" onclick="addPlayers(this)">Select</button>
               </div>
             </div>
           </div>
@@ -60,20 +60,27 @@
                 <p class="card-text">Country: Brazil</p>
                 <p class="card-text">300 x Goals</p>
                 <p class="card-text">500 x Assists</p>
-                <button type="button" class="texts btn btn-warning fw-semibold">Select</button>
+                <button type="button" class="texts btn btn-warning fw-semibold" onclick="addPlayers(this)">Select</button>
               </div>
             </div>
           </div>
           <div class="col-3">
             <div class="card text-center mt-5 bg-dark">
-              <h2 class="texts fs-2 fw-semibold text-warning mt-5 mb-5 text-decoration-underline">SELECTED-5</h2>
-              <ol class="list-group list-group-numbered">
-                <li id="player1" class="list-group-item">-</li>
-                <li id="player2" class="list-group-item">-</li>
-                <li id="player3" class="list-group-item">-</li>
-                <li id="player4" class="list-group-item">-</li>
-                <li id="player5" class="list-group-item">-</li>
-              </ol>
+              <h2 class="texts fs-2 fw-semibold text-warning mt-5 mb-5 text-decoration-underline">SELECTED-<span id="selectedPlayerNo" class="text-light">0</span></h2>
+              <table class="table table-dark table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-warning">#</th>
+                    <th scope="col" class="text-warning">Players</th>
+                  </tr>
+                </thead>
+                <tbody id="players" class="text-light">
+                  <!-- <tr>
+                    <th scope="row">1</th>
+                    <td>-</td>
+                  </tr> -->
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -89,7 +96,7 @@
                 <p class="card-text">Country: France</p>
                 <p class="card-text">700 x Goals</p>
                 <p class="card-text">350 x Assists</p>
-                <button type="button" class="texts btn btn-warning fw-semibold">Select</button>
+                <button type="button" class="texts btn btn-warning fw-semibold" onclick="addPlayers(this)">Select</button>
               </div>
             </div>
           </div>
@@ -102,7 +109,7 @@
                 <p class="card-text">Country: France</p>
                 <p class="card-text">600 x Goals</p>
                 <p class="card-text">200 x Assists</p>
-                <button type="button" class="texts btn btn-warning fw-semibold">Select</button>
+                <button type="button" class="texts btn btn-warning fw-semibold" onclick="addPlayers(this)">Select</button>
               </div>
             </div>
           </div>
@@ -115,7 +122,7 @@
                 <p class="card-text">Country: Poland</p>
                 <p class="card-text">800 x Goals</p>
                 <p class="card-text">150 x Assists</p>
-                <button type="button" class="texts btn btn-warning fw-semibold">Select</button>
+                <button type="button" class="texts btn btn-warning fw-semibold" onclick="addPlayers(this)">Select</button>
               </div>
             </div>
           </div>
@@ -124,29 +131,29 @@
               <h2 class="texts fs-2 fw-semibold text-success mt-5 mb-3 text-decoration-underline">Budget</h2>
               <div class="d-flex justify-content-around">
                 <h6 class="ms-auto me-auto">Per Player</h6>
-                <input class="me-auto ms-auto text-center" type="" name="" id="">
+                <input class="me-auto ms-auto text-center" type="" name="" id="per-player-input">
               </div>
               <div class="texts mt-3">
-                <button type="button" class="btn btn-success fw-semibold">Calculate</button>
+                <button id="calulate-btn" type="button" class="btn btn-success fw-semibold">Calculate</button>
               </div>
               <div class="mt-3 d-flex justify-content-around">
                 <div>
                   <h5 class="ms-auto me-auto fw-semibold">Player Expenses:</h5>
                 </div>
                 <div>
-                  <h5 class="ms-auto me-auto fw-semibold">$<span></span></h5>
+                  <h5 class="ms-auto me-auto fw-semibold">$<span id="playerExpensesAmount">0</span></h5>
                 </div>
               </div>
               <div class="mt-3 d-flex justify-content-center">
                 <h6 class="ms-auto me-auto">Manager</h6>
-                <input class="me-auto ms-auto text-center" type="" name="" id="">
+                <input class="me-auto ms-auto text-center" type="" name="" id="manager-cost">
               </div>
               <div class="mt-3 d-flex justify-content-center">
                 <h6 class="ms-auto me-auto">Coach</h6>
-                <input class="me-auto ms-auto text-center" type="" name="" id="">
+                <input class="me-auto ms-auto text-center" type="" name="" id="coach-cost">
               </div>
               <div class="mt-3 texts">
-                <button type="button" class="btn btn-success fw-semibold">Calculate Total</button>
+                <button id="calulateTotal-btn" type="button" class="btn btn-success fw-semibold">Calculate Total</button>
               </div>
               <div class="texts mt-3 d-flex justify-content-around">
                 <div>
