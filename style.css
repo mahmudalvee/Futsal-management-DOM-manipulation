@@ -17,18 +17,18 @@
 }
 
 .imageSizeTop{
-    width: 30%;
-    height: 20%;
+    width: 20vw;
+    height: 13vw;
 }
 
 .imageSizeSmolRight{
-    width: 100%;
-    height: 100%;
+    width: 15vw;
+    height: 18vw;
 }
 
 .imageSizeSmolLeft{
-    width: 80%;
-    height: 80%;
+    width: 12vw;
+    height: 18vw;
 }
 
 .footer{
