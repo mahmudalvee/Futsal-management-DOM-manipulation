@@ -68,7 +68,7 @@ document.getElementById('calulate-btn').addEventListener('click',function(){
         alert('Calculation Error!!!\nPlease select Player(s) first.');
         return;
     }
-    if(isNaN(perPlayerAmount) || perPlayerAmount < 0)
+    if(isNaN(perPlayerAmount) || perPlayerAmount <= 0)
     {
         alert('Calculation Error!!!\nPlease enter valid digit cost$ of Players.');
         return;
@@ -96,7 +96,7 @@ document.getElementById('calulateTotal-btn').addEventListener('click',function()
         alert('Calculation Error!!!\nPlease select Player(s) first.');
         return;
     }
-    if((isNaN(managerCost) || managerCost < 0) || (isNaN(coachCost) || coachCost < 0))
+    if((isNaN(managerCost) || managerCost <= 0) || (isNaN(coachCost) || coachCost <= 0))
     {
         alert('Calculation Error!!!\nPlease enter valid digit cost$ for Manager & Coach.');
         return;
